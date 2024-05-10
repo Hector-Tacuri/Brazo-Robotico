@@ -1,0 +1,91 @@
+#include <iostream>
+
+class Articulacion {
+public:
+    void rotar(float angulo) {
+        // Implementación de rotación de la articulación
+    }
+};
+
+class BrazoRobotico {
+private:
+    Articulacion base;
+    Articulacion eje;
+    Articulacion panel;
+
+public:
+    void moverBrazo(float anguloBase, float anguloEje) {
+        // Implementación de movimiento del brazo robótico
+    }
+};
+
+class SensorLuz {
+private:
+    // Atributos para representar los datos del sensor de luz
+
+public:
+    float calcularAnguloInclinacion() {
+        // Implementación del cálculo del ángulo de inclinación
+        return 0.0f; // Valor de ejemplo, sustituir con la implementación real
+    }
+};
+
+class Boton {
+public:
+    bool estaPresionado() {
+        // Implementación de verificación de si el botón está presionado
+        return false; // Valor de ejemplo, sustituir con la implementación real
+    }
+};
+
+class PantallaLED {
+public:
+    void mostrarInformacion(float angulo, float corriente) {
+        // Implementación de mostrar información en la pantalla LED
+    }
+};
+
+class PanelSolar {
+private:
+    SensorLuz sensor;
+    BrazoRobotico brazo;
+    PantallaLED pantalla;
+    Boton boton;
+    float ultimoAngulo;
+    float ultimaCorriente;
+    bool mostrarAngulo;
+
+public:
+    void ajustarPanelHaciaSol() {
+        // Implementación de ajuste del panel hacia el sol
+    }
+
+    float calcularCorrienteGenerada() {
+        // Implementación del cálculo de la corriente generada por el panel solar
+        return 0.0f; // Valor de ejemplo, sustituir con la implementación real
+    }
+
+    void actualizarPantalla() {
+        if (boton.estaPresionado()) {
+            mostrarAngulo = !mostrarAngulo;
+        }
+
+        if (mostrarAngulo) {
+            float angulo = sensor.calcularAnguloInclinacion();
+            pantalla.mostrarInformacion(angulo, 0.0f); // Mostrar ángulo, corriente en 0
+        } else {
+            float corriente = calcularCorrienteGenerada();
+            pantalla.mostrarInformacion(0.0f, corriente); // Mostrar corriente, ángulo en 0
+        }
+    }
+};
+
+int main() {
+    PanelSolar panelSolar;
+    
+    // Lógica para controlar el panel solar...
+    panelSolar.ajustarPanelHaciaSol();
+    panelSolar.actualizarPantalla();
+
+    return 0;
+}
